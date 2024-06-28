@@ -1,22 +1,14 @@
-// Create a web server
+// Create web server
 const express = require('express');
 const app = express();
 const port = 3000;
 
-// Import the comments module
-const comments = require('./comments');
-
-// Get all the comments
-app.get('/comments', (req, res) => {
-  res.json(comments.getAll());
+// Create a route for GET request
+app.get('/', (req, res) => {
+    res.send('Hello World!');
 });
 
-// Get comments by id
-app.get('/comments/:id', (req, res) => {
-  res.json(comments.getComment(req.params.id));
-});
-
-// Start the server
+// Start server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Server started on http://localhost:${port}`);
 });
